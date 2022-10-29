@@ -24,7 +24,7 @@ int main()
 
     p = read();
     lenp = strlen(p);
-    vars = variables(p, strlen(p));
+    vars = variables(p, lenp);
     remove_spaces_and_newlines(vars);
     number_of_vars = strlen(vars);
     height = pow(2, number_of_vars);
@@ -64,9 +64,11 @@ char *read()
     char c, *p;
     int i=0;
     p = malloc(sizeof(char)*1);
-    while ((c = getchar()) != '\n')
+    while (1)
     {
-        p = realloc(p, sizeof(char)*(i+2));
+        scanf("%c", &c);
+        if (c == '\n' || c == EOF) break;
+        p = realloc(p, sizeof(char)*(i+1));
         p[i] = c;
         i++;
     }
@@ -80,19 +82,20 @@ char *variables(char *p, int length)
     char *r=malloc(sizeof(char)*1);
     for (i=0 ; i<length ; i++)
     {
-        if (p[i] != '(' && p[i] != ')' && p[i] != ' ' && p[i] != '&' && p[i] != '-' && p[i] != '>' && p[i] != '|' && p[i] != '=' && p[i] != '^' && p[i] != EOF)
+        if (p[i] != '(' && p[i] != ')' && p[i] != ' ' && p[i] != '&' && p[i] != '-' && p[i] != '>' && p[i] != '|' && p[i] != '=' && p[i] != '^')
+        {
+            for (k=0 ; k<strlen(r) ; k++)
             {
-                for (k=0 ; k<strlen(r) ; k++)
-                {
-                    if (r[k] == p[i])
-                        goto exit;
-                }
-                r = realloc(r, sizeof(char)*(j+2));
-                r[j] = p[i];
-                j++;
+                if (r[k] == p[i])
+                    goto exit;
             }
+            r = realloc(r, sizeof(char)*(j+1));
+            r[j] = p[i];
+            j++;
+        }
         exit:;
     }
+    r[j] = '\0';
     return r;
 }
 
