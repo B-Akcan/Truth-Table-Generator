@@ -8,10 +8,19 @@
 - '^' : XOR Operator
 
 ## Sample Input
-![Untitled](https://user-images.githubusercontent.com/108730135/198838085-5239877a-6a97-415b-8ac1-39e2c8e4e054.png)[^1][^2]
+-(((a & (b > c)) | b) ^ a)
+[^1][^2]
 
 ## Sample Output
-![Untitled](https://user-images.githubusercontent.com/108730135/198838020-a6a94e7f-84d5-4adf-87a0-064c1fc6ca19.png)
+a b c Result  \
+T T T &nbsp;&nbsp; T \
+T T F &nbsp;&nbsp; T \
+T F T &nbsp;&nbsp; T \
+T F F &nbsp;&nbsp; T \
+F T T &nbsp;&nbsp; F \
+F T F &nbsp;&nbsp; F \
+F F T &nbsp;&nbsp; T \
+F F F &nbsp;&nbsp; T 
 
 [^1]: Any letter in English alphabet (uppercase or lowercase) can be used as variables.
-[^2]: You must use paranthesis around every operation. (e.g., type "(a&b)" instead of "a&b")
+[^2]: You must use paranthesis around every operation (e.g., type "(a&b)" instead of "a&b").
