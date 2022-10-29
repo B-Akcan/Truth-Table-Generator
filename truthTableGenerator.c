@@ -20,6 +20,8 @@ int main()
     char *p, *vars, **truth_table, *p_changeable, *p_wo_spaces;
     int i, j, number_of_vars, height, lenp;
 
+    printf("Enter the input...\n");
+
     p = read();
     lenp = strlen(p);
     vars = variables(p, strlen(p));
@@ -34,8 +36,10 @@ int main()
 
     truth_table = generate_truth_table(number_of_vars);
 
+    printf("\nTruth table:\n");
+
     for (i=0 ; vars[i] ; i++) printf("%c ", vars[i]);
-    printf("R\n");
+    printf("Result\n");
 
     for (i=0 ; i < height ; i++)
     {
@@ -45,11 +49,13 @@ int main()
             else
             {
                 p_changeable = replace(truth_table[i], vars, p_wo_spaces);
-                printf("%c\n", eval(p_changeable) ? 'T' : 'F');
+                printf("  %c\n", eval(p_changeable) ? 'T' : 'F');
             }
         }
     }
 
+    printf("\nPress enter to exit.\n");
+    getchar();
     return 0;
 }
 
@@ -58,7 +64,7 @@ char *read()
     char c, *p;
     int i=0;
     p = malloc(sizeof(char)*1);
-    while ((c = getchar()) != EOF)
+    while ((c = getchar()) != '\n')
     {
         p = realloc(p, sizeof(char)*(i+2));
         p[i] = c;
@@ -74,7 +80,7 @@ char *variables(char *p, int length)
     char *r=malloc(sizeof(char)*1);
     for (i=0 ; i<length ; i++)
     {
-        if (p[i] != '(' && p[i] != ')' && p[i] != ' ' && p[i] != '&' && p[i] != '-' && p[i] != '>' && p[i] != '|' && p[i] != '=' && p[i] != EOF)
+        if (p[i] != '(' && p[i] != ')' && p[i] != ' ' && p[i] != '&' && p[i] != '-' && p[i] != '>' && p[i] != '|' && p[i] != '=' && p[i] != '^' && p[i] != EOF)
             {
                 for (k=0 ; k<strlen(r) ; k++)
                 {
@@ -137,6 +143,7 @@ long int operate()
             case '|': return left || right; break;
             case '>': return !left || right; break;
             case '=': return (!left || right) && (left || !right); break;
+            case '^': return (left && !right) || (!left && right); break;
         }
     }
     else
