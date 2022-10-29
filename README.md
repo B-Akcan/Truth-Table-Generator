@@ -22,5 +22,5 @@ F T F &nbsp;&nbsp; F \
 F F T &nbsp;&nbsp; T \
 F F F &nbsp;&nbsp; T 
 
-[^1]: Any letter in English alphabet (uppercase or lowercase) can be used as variables.
+[^1]: Any letter in English alphabet (uppercase or lowercase) can be used as propositions.
 [^2]: You must use paranthesis around every operation (e.g., type "(a&b)" instead of "a&b").
