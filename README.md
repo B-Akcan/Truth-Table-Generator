@@ -1,11 +1,11 @@
 # Truth-Table-Generator
 ## Operators
-- '-' : Negation Operator
-- '&' : AND Operator
-- '|' : OR Operator
-- '>' : Implication Operator
-- '=' : If And Only If Operator
-- '^' : XOR Operator
+'-' : Negation Operator\
+'&' : AND Operator\
+'|' : OR Operator\
+'>' : Implication Operator\
+'=' : If And Only If Operator\
+'^' : XOR Operator
 
 ## Sample Input
 -(((a & (b > c)) | b) ^ a)
