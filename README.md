@@ -8,15 +8,15 @@
 '^' : XOR Operator
 
 ## Sample Input
--(((a & (b > c)) | b) ^ a)
+-((a & (b > c)) | b)
 [^1][^2]
 
 ## Sample Output
 a b c Result  \
-T T T &nbsp;&nbsp; T \
-T T F &nbsp;&nbsp; T \
-T F T &nbsp;&nbsp; T \
-T F F &nbsp;&nbsp; T \
+T T T &nbsp;&nbsp; F \
+T T F &nbsp;&nbsp; F \
+T F T &nbsp;&nbsp; F \
+T F F &nbsp;&nbsp; F \
 F T T &nbsp;&nbsp; F \
 F T F &nbsp;&nbsp; F \
 F F T &nbsp;&nbsp; T \
